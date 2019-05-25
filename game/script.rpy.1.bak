@@ -1,0 +1,77 @@
+# The script of the game goes in this file.
+
+# Declare characters used by this game. The color argument colorizes the
+# name of the character.
+
+define k = Character("Kancil", who_color="#fd680d")
+
+# The game starts here.
+
+label start:
+
+    # Show a background. This uses a placeholder by default, but you can
+    # add a file (named either "bg room.png" or "bg room.jpg") to the
+    # images directory to show it.
+
+    scene bg hutan
+
+    # This shows a character sprite. A placeholder is used, but you can
+    # replace it by adding a file named "eileen happy.png" to the images
+    # directory.
+
+    show kancil
+
+    # These display lines of dialogue.
+
+    k "Halo."
+
+    show bg sungai with dissolve
+    hide kancil
+
+    show kancil
+
+    k "Ini baru percobaan ya."
+
+    k "Ini untuk ngetes percabangan"
+
+    jump choice
+
+label choice:
+
+    menu:
+        k "Mau tanya apa?"
+
+        "Ini interaktif dari mana?":
+            jump interaktif
+
+        "Ceritanya mana?":
+            jump cerita
+
+        "Tidak ada":
+            jump akhir
+
+label interaktif:
+
+    k "Bisa disebut interaktif karena pengguna harus merespon setiap ada pilihan seperti tadi."
+
+    k "Dan setiap pilihan atau cabang nanti akan memiliki cerita yang berbeda dari satu dengan yang lainnya."
+
+    k "Dan mungkin kedepannya saya bisa bergerak kalo disentil."
+
+    k "Ya kalo creator saya mau bikin saya bisa gerak..."
+
+    jump choice
+
+label cerita:
+
+    k "Karena belum ada ceritanya, jadi ya cuma gini dulu."
+
+    jump choice
+
+label akhir:
+
+    k " ok, dadah..."
+
+    # This ends the game.
+
+    return
